@@ -1,0 +1,14 @@
+{
+  "name": "enceladus",
+  "version": "0.1.0",
+  "description": "RESTful backend to recipe mobile app that provides database storage for recipes",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "elijah.hadam",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
