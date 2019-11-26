@@ -1,8 +1,15 @@
 const express = require('express');
 const app = express();
 
-app.get('/', function (req, res) {
-   res.send('Hello World');
+app.get('/recipes/', (request, response) => {
+   // Delegate this process to another file
+   const json = [{title: 'Test recipe'}, {title: 'Another recipe'}, {title: 'A third recipe!'}];
+   response.send(json);
+})
+
+app.post('/recipes/', (request, response) => {
+   response.status(204);
+   response.send()
 })
 
 const server = app.listen(8081, function () {
