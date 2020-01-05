@@ -6,7 +6,7 @@ const app = express();
 
 app.use(express.json());
 
-app.get('/recipes/', (request, response) => {
+app.get('/recipes', (request, response) => {
   RecipeModel.find((error, recipes) => {
     if (error) {
       response.status(500).send();
@@ -19,7 +19,7 @@ app.get('/recipes/', (request, response) => {
   });
 });
 
-app.post('/recipes/', (request, response) => {
+app.post('/recipes', (request, response) => {
   if (recipeValidator(request.body)) {
     const newRecipe = new RecipeModel(request.body);
     newRecipe.save((error, recipe) => {
@@ -28,7 +28,7 @@ app.post('/recipes/', (request, response) => {
         response.status(500);
       } else {
         console.log(recipe.title + ' saved to recipe collection.');
-        response.status(204);
+        response.status(201);
       }
     });
   } else {
