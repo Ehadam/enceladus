@@ -2,8 +2,9 @@
   "name": "enceladus",
   "version": "0.1.0",
   "description": "RESTful backend to recipe mobile app that provides database storage for recipes",
-  "main": "main.js",
+  "main": "server.js",
   "scripts": {
+    "start": "node src/server.js",
     "test": "jest"
   },
   "author": "elijah.hadam",
