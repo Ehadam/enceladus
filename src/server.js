@@ -1,9 +1,18 @@
 const mongoose = require('./MongooseProvider');
 const app = require('./app.js');
+const fs = require('fs');
+
+const databaseConfig = JSON.parse(fs.readFileSync('./config.json', 'UTF-8'));
 
 const connectToDatabase = async () => {
+  const options = {
+    user: databaseConfig.username,
+    pass: databaseConfig.password,
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  }
   try {
-    await mongoose.connect('mongodb://localhost:27017/enceladus_test', { useNewUrlParser: true, useUnifiedTopology: true, keepAliveInitialDelay: 300000 });
+    await mongoose.connect(databaseConfig.databaseUrl, options);
     console.log('Database connection successful');
   } catch (error) {
     console.log(error);
