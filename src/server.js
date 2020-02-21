@@ -1,4 +1,4 @@
-const mongoose = require('./MongooseProvider');
+const mongoose = require('mongoose');
 const app = require('./app.js');
 const fs = require('fs');
 
